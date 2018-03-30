@@ -5,43 +5,52 @@ namespace Lesson1
 {
     class Program
     {
-        class InputValues
+        class ConsoleInput
         {
-            public string Line { get; set; }
-            public string InputValue { get; set; }
+            public string Id { get; set; }
+            public string Value { get; set; }
         }
         static void Main(string[] args)
         {
-            string userInput = string.Empty;
+            string valueInput = string.Empty;
             int inputCounter = 1;
             bool quitFlag = false;
-            List<InputValues> inputList = new List<InputValues>();
+            
+            List<ConsoleInput> consoleInputs = new List<ConsoleInput>();
 
-            Console.WriteLine("Please enter anything you wish to or 'Q' to quit.");
-            userInput = Console.ReadLine();
+            Console.WriteLine("Please enter a list of items each followed by the Enter key or 'Q' to quit entering and display your list.");
+            valueInput = Console.ReadLine();
 
             while (!quitFlag)
             {
-                if (userInput.ToUpper() == "Q")
+                //user done entering?
+                if (valueInput.ToUpper() == "Q")
                 {
                     quitFlag = true;
                 }
                 else
                 {
-                    InputValues newInput = new InputValues() { Line = inputCounter.ToString(), InputValue = userInput };
-                    inputList.Add(newInput);
+                    //creating object
+                    ConsoleInput consoleInput = new ConsoleInput() { Id = inputCounter.ToString(), Value = valueInput };
+
+                    //add to list
+                    consoleInputs.Add(consoleInput);
+
+                    //increment line counter
                     inputCounter++;
 
-                    userInput = Console.ReadLine();
+                    //get next line
+                    valueInput = Console.ReadLine();
                 }
-            }            
-
-            Console.Write("Hello World\n");
-
-            foreach (InputValues inputValue in inputList)
-            {
-                Console.WriteLine($"Line: { inputValue.Line } - Value: { inputValue.InputValue }.");
             }
-        }        
+
+            //display list to window
+            Console.Write("\n\rHello World\n");
+            foreach (ConsoleInput consoleInput in consoleInputs)
+            {
+
+                Console.WriteLine($"Line: { consoleInput.Id } - Value: { consoleInput.Value }.");
+            }
+        } 
     }
 }
