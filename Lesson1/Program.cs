@@ -49,7 +49,7 @@ namespace Lesson1
             foreach (ConsoleInput consoleInput in consoleInputs)
             {
 
-                Console.WriteLine($"Line: { consoleInput.Id } - Value: { consoleInput.Value }.");
+                Console.WriteLine($"Item: { consoleInput.Id } - Value: { consoleInput.Value }.");
             }
         } 
     }
