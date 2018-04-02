@@ -14,16 +14,18 @@ namespace Lesson1
             }
 
             //invalid value seperator?
-            else if (!Array.Exists(args, a => a.Contains("=")))
+            else if (!Array.TrueForAll(args, value => value.Contains("=")))
             {
                 Console.WriteLine("Invalid command line argument value seperator.\nValid command line example: Commandline arg1=test arg2=name");
             }
+            
             //we have arguments so display them
             else
             {
                 CommandLineArguments commandLineArgs = new CommandLineArguments(args);
                 Console.WriteLine($"Hello World - { commandLineArgs.FormatForDisplay()}");
             }
+            
         }
     }
 }

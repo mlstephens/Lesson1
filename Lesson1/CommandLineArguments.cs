@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Lesson1
 {
@@ -18,17 +19,17 @@ namespace Lesson1
             foreach (string argument in _arguments)
             {
                 string[] parsedArg = argument.Split('=');
-                if (parsedArg.Length > 0)
+
+                //valid argument structure
+                if (parsedArg.Length == 2)
                 {
-                    //invalid argument structure?
-                    if (parsedArg.Length != 2)
-                    {
-                        formattedArgs.Append("[invalid argument] ");
-                    }
-                    else
-                    {
-                        formattedArgs.Append($"[{parsedArg[0].Trim()} - {parsedArg[1].Trim()}] ");
-                    }
+                    formattedArgs.Append($"[{parsedArg[0].Trim()} - {parsedArg[1].Trim()}] ");                    
+                }
+
+                //invalid argument structure
+                else
+                {
+                    formattedArgs.Append("[invalid argument] ");
                 }
             }
             return formattedArgs.ToString();
