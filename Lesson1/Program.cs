@@ -6,18 +6,19 @@ namespace Lesson1
     {
         static void Main(string[] args)
         {
-            //invalid arguments
-            if (args.Length == 0 || !Array.TrueForAll(args, a => a.Split('=').Length == 2))
-            {
-                Console.WriteLine("Invalid command line arguments.\nValid command line example: Commandline arg1=test arg2=name");
-            }
+            string message = string.Empty;
+            CommandLineArguments commandLineArgs = new CommandLineArguments(args);
 
-            //valid arguments
+            if (commandLineArgs.HaveValidArguments())
+            {
+                message = $"Hello World - { commandLineArgs.FormatForDisplay() }";
+            }
             else
             {
-                CommandLineArguments commandLineArgs = new CommandLineArguments(args);
-                Console.WriteLine($"Hello World - { commandLineArgs.FormatForDisplay() }");
+                message = "Valid command line example: Commandline arg1=test arg2=name";
             }
+
+            Console.WriteLine(message);
         }
     }
 }
