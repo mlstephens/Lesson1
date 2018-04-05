@@ -16,14 +16,14 @@ namespace Lesson1
 
         public bool HaveValidArguments()
         {
-            bool validArgument = true;
-
             if (!_argArray.Any() || _argArray.Any(a => a.Split(_argSeperator).Length != 2))
             {
-                validArgument = false;
+                return  false;
             }
-
-            return validArgument;
+            else
+            {
+                return true;
+            }
         }
 
         public string FormatForDisplay()
