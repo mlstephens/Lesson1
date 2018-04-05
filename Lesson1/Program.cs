@@ -9,7 +9,7 @@ namespace Lesson1
             string message = string.Empty;
             CommandLineArguments commandLineArgs = new CommandLineArguments(args);
 
-            if (commandLineArgs.HaveValidArguments())
+            if (commandLineArgs.IsCommandLineValid)
             {
                 message = $"Hello World - { commandLineArgs.FormatForDisplay() }";
             }

@@ -14,15 +14,19 @@ namespace Lesson1
             _argArray = clArgArray;
         }
 
-        public bool HaveValidArguments()
+        private bool IsArrayEmpty { get { return !_argArray.Any(); } }
+        private bool HaveInvalidArguments { get { return _argArray.Any(a => a.Split(_argSeperator).Length != 2); } }
+
+        public bool IsCommandLineValid
         {
-            if (!_argArray.Any() || _argArray.Any(a => a.Split(_argSeperator).Length != 2))
+            get
             {
-                return  false;
-            }
-            else
-            {
-                return true;
+                bool valid = true;
+
+                if (IsArrayEmpty || HaveInvalidArguments)
+                    valid = false;                
+                
+                return valid;
             }
         }
 
