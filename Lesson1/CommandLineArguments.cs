@@ -18,7 +18,7 @@ namespace Lesson1
         {
             bool validArgument = true;
 
-            if (_argArray.Length == 0 || !_argArray.All(a => a.Split(_argSeperator).Length == 2))
+            if (!_argArray.Any() || _argArray.Any(a => a.Split(_argSeperator).Length != 2))
             {
                 validArgument = false;
             }
