@@ -14,11 +14,11 @@ namespace Lesson1
             _argArray = clArgArray;
         }
 
-        private bool IsArrayEmpty { get { return !_argArray.Any(); } }
+        private bool ArrayIsEmpty { get { return !_argArray.Any(); } }
 
         private bool HaveInvalidArguments { get { return _argArray.Any(a => a.Split(_argSeperator).Length != 2); } }
 
-        public bool IsCommandLineValid { get { return (IsArrayEmpty || HaveInvalidArguments) ? false : true; } }        
+        public bool IsCommandLineValid { get { return (ArrayIsEmpty || HaveInvalidArguments) ? false : true; } }        
 
         public string FormatForDisplay()
         {
