@@ -15,20 +15,10 @@ namespace Lesson1
         }
 
         private bool IsArrayEmpty { get { return !_argArray.Any(); } }
+
         private bool HaveInvalidArguments { get { return _argArray.Any(a => a.Split(_argSeperator).Length != 2); } }
 
-        public bool IsCommandLineValid
-        {
-            get
-            {
-                bool valid = true;
-
-                if (IsArrayEmpty || HaveInvalidArguments)
-                    valid = false;                
-                
-                return valid;
-            }
-        }
+        public bool IsCommandLineValid { get { return (IsArrayEmpty || HaveInvalidArguments) ? false : true; } }        
 
         public string FormatForDisplay()
         {
