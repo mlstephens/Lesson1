@@ -13,16 +13,14 @@ namespace Lesson1
         {
             _argArray = clArgArray;
         }
-
-        private bool ArrayIsEmpty { get { return !_argArray.Any(); } }
-
-        private bool HaveInvalidArguments { get { return _argArray.Any(a => a.Split(_argSeperator).Length != 2); } }
-
-        public bool IsCommandLineValid { get { return (ArrayIsEmpty || HaveInvalidArguments) ? false : true; } }        
+        
+        public bool IsCommandLineValid { get => _argArray.Any() && !_argArray.Any(a => a.Split(_argSeperator).Length != 2); }
 
         public string FormatForDisplay()
         {
             StringBuilder formattedArgs = new StringBuilder();
+
+            formattedArgs.Append("Hello World - ");
 
             foreach (string argument in _argArray)
             {
