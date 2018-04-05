@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace Lesson1
@@ -17,7 +18,7 @@ namespace Lesson1
         {
             bool validArgument = true;
 
-            if (_argArray.Length == 0 || !Array.TrueForAll(_argArray, a => a.Split(_argSeperator).Length == 2))
+            if (_argArray.Length == 0 || !_argArray.All(a => a.Split(_argSeperator).Length == 2))
             {
                 validArgument = false;
             }

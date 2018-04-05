@@ -15,7 +15,7 @@ namespace Lesson1
             }
             else
             {
-                message = "Valid command line example: Commandline arg1=test arg2=name";
+                message = "Command Line Argument Error: valid command line example: Commandline arg1=test arg2=name";
             }
 
             Console.WriteLine(message);
