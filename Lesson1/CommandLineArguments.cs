@@ -6,8 +6,8 @@ namespace Lesson1
 {
     public class CommandLineArguments
     {
-        string[] _argArray = null;
-        const char _argSeperator = '=';
+        private string[] _argArray = null;
+        private const char _argSeperator = '=';
 
         public CommandLineArguments(string[] clArgArray)
         {
