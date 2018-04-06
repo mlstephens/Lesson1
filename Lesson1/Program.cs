@@ -8,7 +8,6 @@ namespace Lesson1
 
         static void Main(string[] args)
         {
-            string message = string.Empty;
             CommandLineArguments commandLineArgs = new CommandLineArguments(args);
 
             Console.WriteLine(commandLineArgs.IsCommandLineValid
